@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Unity, useUnityContext } from 'react-unity-webgl';
+
+import NavBar from './components/NavBar.jsx';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: 'build/platformer.loader.js',
+    dataUrl: 'build/platformer.data',
+    frameworkUrl: 'build/platformer.framework.js',
+    codeUrl: 'build/platformer.wasm',
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Container className='mt-4'>
+        <Unity
+          style={{
+            width: '100%',
+            height: '90%',
+            justifySelf: 'center',
+            alignSelf: 'center',
+          }}
+          unityProvider={unityProvider}
+        />
+      </Container>
+    </>
   );
 }
 
