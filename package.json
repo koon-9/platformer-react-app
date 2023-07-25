@@ -18,7 +18,7 @@
   "scripts": {
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "homepage": "https://koon-9.github.io/pages",
+    "homepage": "https://koon-9.github.io/platformer-react-app",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
